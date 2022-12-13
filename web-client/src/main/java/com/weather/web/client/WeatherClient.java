@@ -13,9 +13,9 @@ public class WeatherClient {
     @Value("${api_host}")
     private String apiHost;
     // not valid API_KEY
-    public static final String API_KEY = "f1cf185d994f48bc8ece50716d0ade8d";
+    // public static final String API_KEY = "f1cf185d994f48bc8ece50716d0ade8d";
     // valid API_KEY
-    //public static final String API_KEY = "bf6acaa02f9b4bbea4b7325e06f70d43";
+    public static final String API_KEY = "bf6acaa02f9b4bbea4b7325e06f70d43";
     private final RestTemplate restTemplate = new RestTemplate();
 
     public WeatherBitResponseDto getForecastByCoordinates(double lat, double lon) {
