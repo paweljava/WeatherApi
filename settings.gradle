@@ -1,0 +1,4 @@
+rootProject.name = 'weather'
+include 'app'
+include 'web-client'
+
