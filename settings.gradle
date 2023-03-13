@@ -1,4 +1,4 @@
-rootProject.name = 'weather'
+rootProject.name = 'WeatherApi'
 include 'app'
 include 'web-client'
 

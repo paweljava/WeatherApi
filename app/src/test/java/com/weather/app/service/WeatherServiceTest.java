@@ -52,13 +52,13 @@ class WeatherServiceTest {
         final var result = weatherService.getWeather(DATE);
 
         // then
-        assertEquals(CITY_2.getCityName(), result.cityName());
-        assertEquals(WEATHER_34.forecastDate(), result.data().get(0).forecastDate());
-        assertEquals(WEATHER_34.averageTemp(), result.data().get(0).averageTemp());
-        assertEquals(WEATHER_34.windSpeed(), result.data().get(0).windSpeed());
-        assertNotEquals(WEATHER_1.forecastDate(), result.data().get(0).forecastDate());
-        assertNotEquals(WEATHER_10.averageTemp(), result.data().get(0).averageTemp());
-        assertNotEquals(WEATHER_4.windSpeed(), result.data().get(0).windSpeed()
+        assertEquals(CITY_2.getCityName(), result.get(0).cityName());
+        assertEquals(WEATHER_34.forecastDate(), result.get(0).data().get(0).forecastDate());
+        assertEquals(WEATHER_34.averageTemp(), result.get(0).data().get(0).averageTemp());
+        assertEquals(WEATHER_34.windSpeed(), result.get(0).data().get(0).windSpeed());
+        assertNotEquals(WEATHER_1.forecastDate(), result.get(0).data().get(0).forecastDate());
+        assertNotEquals(WEATHER_10.averageTemp(), result.get(0).data().get(0).averageTemp());
+        assertNotEquals(WEATHER_4.windSpeed(), result.get(0).data().get(0).windSpeed()
         );
     }
 }

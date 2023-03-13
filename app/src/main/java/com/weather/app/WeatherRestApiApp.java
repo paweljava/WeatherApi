@@ -11,7 +11,6 @@ public class WeatherRestApiApp {
 
     @Autowired
     public static void main(String[] args) {
-
         SpringApplication.run(WeatherRestApiApp.class, args);
     }
 }

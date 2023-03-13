@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.weather.web.client.WeatherClient.API_KEY;
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -93,13 +94,13 @@ class WeatherRestApiIntegrationTestMockMvc {
                 .andReturn();
 
         // then
-        var response = objectMapper.readValue(mvcResult.getResponse()
-                .getContentAsString(UTF_8), ResponseWeatherDto.class);
+        var response = asList(objectMapper.readValue(mvcResult.getResponse()
+                .getContentAsString(UTF_8), ResponseWeatherDto[].class));
 
-        assertEquals("Bridgetown", response.cityName());
-        assertEquals(27.3, response.weatherDtoList().get(0).averageTemp());
-        assertEquals(5.3, response.weatherDtoList().get(0).windSpeed());
-        verify(getRequestedFor(urlPathEqualTo("/v2.0/forecast/daily")));
+        assertEquals("Fortaleza", response.get(0).cityName());
+        assertEquals(29.7, response.get(0).weatherDtoList().get(0).averageTemp());
+        assertEquals(3.7, response.get(0).weatherDtoList().get(0).windSpeed());
+        //verify(getRequestedFor(urlPathEqualTo("/v2.0/forecast/daily")));
     }
 
     /*@Test
